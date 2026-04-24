@@ -1,3 +1,8 @@
+/**
+ * Перевіряє чи є рядок паліндромом
+ * @param {string} str - слово чи рядок який перевіряється на поліндром
+ * @returns {boolean} - true якщо поліндром false якщо не поліндром аюо не відповідає умові
+ */
 function isPolindrom(str) {
   if (typeof str !== "string") {
     return false;
@@ -24,6 +29,15 @@ if (polindrom) {
   console.log("Строка не є поліндромом");
 }
 
+
+
+/**
+ * Перевіряє чи є два рядки анаграмами
+ *
+ * @param {string} first - перший рядок
+ * @param {string} second - другий рядок
+ * @returns {boolean} true якщо анаграми, false якщо ні
+ */
 function isAnagram(first, second) {
   if (typeof first !== "string" || typeof second !== "string") {
     return false;
