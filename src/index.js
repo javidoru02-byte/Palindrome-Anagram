@@ -1,9 +1,9 @@
 function isPolindrom(str) {
   if (typeof str !== "string") {
-    return null;
+    return false;
   }
 
-  const word = str.toLowerCase().replace(/" "/g, "");
+  const word = str.toLowerCase().replace(/ /g, "");
   let revers = "";
   for (let i = word.length - 1; i >= 0; i--) {
     revers += word[i];
@@ -16,11 +16,46 @@ function isPolindrom(str) {
   return polindrome;
 }
 
-const polindrom = isPolindrom("Q W Q");
-if (polindrom === null) {
-  console.log("Помилка: аргумент має бути рядком");
-} else if (polindrom) {
-  console.log("Слово поліндром");
+const polindrom = isPolindrom("121");
+
+if (polindrom) {
+  console.log("Строка поліндром");
 } else {
-  console.log("Слово не є поліндромом");
+  console.log("Строка не є поліндромом");
+}
+
+function isAnagram(first, second) {
+  if (typeof first !== "string" || typeof second !== "string") {
+    return false;
+  }
+
+  const firstString = first.toLowerCase().replace(/ /g, "");
+  const secondString = second.toLowerCase().replace(/ /g, "");
+
+  if (firstString.length !== secondString.length) {
+    return false;
+  }
+
+  const charCounter = {};
+
+  for (let i = 0; i < firstString.length; i++) {
+    const char = firstString[i];
+    charCounter[char] = charCounter[char] ? charCounter[char] + 1 : 1;
+  }
+
+  for (let i = 0; i < secondString.length; i++) {
+    const char = secondString[i];
+    if (!charCounter[char]) {
+      return false;
+    }
+    charCounter[char]--;
+  }
+  return true;
+}
+
+const anagram = isAnagram("казан", "наказ");
+if (anagram) {
+  console.log("Строка анаграм");
+} else {
+  console.log("Строка не анаграм");
 }
